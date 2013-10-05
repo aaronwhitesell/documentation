@@ -1,0 +1,23 @@
+1. selecting 32 or 64 bit libraries
+	- On Windows, choosing 32 or 64 bits libraries should be based on which platform you want to compile for, not which OS you have.
+	Indeed, you can perfectly compile and run a 32 bits program on a 64 bits Windows. So you'll most likely want to target 32 bits 
+	platforms, to have the largest 	possible audience. Choose 64 bits packages only if you have good reasons.
+
+2. apply future changes to all configurations
+	- Project -> Project's Properties -> Configuration: All Configurations
+
+3. tell compiler where to find the SFML headers 
+	- Project -> Project's Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories
+	- browse to "SFML-2.1\include" and add it
+
+4. tell compiler where to find the SFML libraries
+	- Project -> Project's Properties -> Configuration Properties -> Linker -> General -> Additional Library Directories
+	- browse to "SFML-2.1\include" and add it
+
+5. link your application to the SFML libraries
+	- do this for each configuration ("sfml-xxx-d.lib" for Debug, and "sfml-xxx.lib" for Release)
+	- Project -> Project's Properties -> Configuration Properties -> Linker -> Input
+	- add the 5 libraries (audio, graphics, network, system, window)
+	- "-s" is a static library
+
+6. Document how to add path to DLLs

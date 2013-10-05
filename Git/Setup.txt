@@ -1,0 +1,20 @@
+1. install
+
+2. download & install Notepad++
+
+3. download & install P4Merge
+	- you only need to install Visual Merge Tool (not Visual Client, Administration Tool, Command-Line Client)
+
+4. run Git Bash
+	- $ git config --global user.name "Aaron Whitesell"
+	- $ git config --global user.email axwhitesell@gmail.com
+	- $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe'
+		-multiInst -notabbar -nosession -noPlugin"
+	- $ git config --global merge.tool p4merge
+	- $ git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+
+5. run Git GUI
+	- create new repository
+	- name repository 
+	- move files to repository
+	- commit files
