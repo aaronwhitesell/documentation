@@ -5,16 +5,44 @@
 3. download & install P4Merge
 	- you only need to install Visual Merge Tool (not Visual Client, Administration Tool, Command-Line Client)
 
-4. run Git Bash
+4.run Git Bash
 	- $ git config --global user.name "Aaron Whitesell"
 	- $ git config --global user.email axwhitesell@gmail.com
 	- $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe'
 		-multiInst -notabbar -nosession -noPlugin"
 	- $ git config --global merge.tool p4merge
 	- $ git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+	- or open .gitconfig and edit directly
 
 5. run Git GUI
 	- create new repository
 	- name repository 
 	- move files to repository
 	- commit files
+
+6. change external diff tool
+	- Repository -> Visualize master's History
+	- Edit -> Preferences
+	- choose new path to external diff tool
+
+7. generate/display SSH keypair
+	- Help -> Show SSH Key -> Generate
+
+8. log into GitHub and register public key
+	- Account Settings -> SSH Keys -> Add SSH key
+	- copy and paste SSH key
+
+9. create repository on GitHub
+	- add repository on GitHub
+	- copy location of repository
+
+10. add remote repository to Git GUI
+	- Remote -> Add
+	- enter name of repository
+	- paste location of repository
+
+1. push local contents to remote repository
+	- Push
+	- enter GitHub username
+	- enter GitHub password
+	- SUCCESS!

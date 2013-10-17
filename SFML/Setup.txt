@@ -9,10 +9,12 @@
 3. tell compiler where to find the SFML headers 
 	- Project -> Project's Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories
 	- browse to "SFML-2.1\include" and add it
+	- ex. relative path "$(SolutionDir)\..\SDK\SFML-2.1\include"
 
 4. tell compiler where to find the SFML libraries
 	- Project -> Project's Properties -> Configuration Properties -> Linker -> General -> Additional Library Directories
-	- browse to "SFML-2.1\include" and add it
+	- browse to "SFML-2.1\lib" and add it
+	- ex. relative path "$(SolutionDir)\..\SDK\SFML-2.1\lib"
 
 5. link your application to the SFML libraries
 	- do this for each configuration ("sfml-xxx-d.lib" for Debug, and "sfml-xxx.lib" for Release)
@@ -20,4 +22,19 @@
 	- add the 5 libraries (audio, graphics, network, system, window)
 	- "-s" is a static library
 
-6. Document how to add path to DLLs
+6. if DYNAMICALLY linked, change working directory to Redist directory (contains DLLs)
+	- dynamically linked executables are required to have the DLLs in their path
+	- Project -> Project's Properties -> Configuration Properties -> Debugging -> Working Directory
+	- default working directory is directory with project file (.vcxproj)
+	- ex. $(ProjectDir)..\..\Redist
+
+	6.1. additional step required, because of bug in VS2012
+		- need to manually add the working directory to the path (or DLLs in working directory are ignored)
+		- Project -> Project's Properties -> Configuration Properties -> Debugging -> Environment
+		- ex. PATH=%PATH%;$(ProjectDir)..\..\Redist
+
+7. if STATICALLY linked, define the SFML_STATIC macro in the preprocessor options
+	- Project -> Project's Properties -> Configuration Properties -> C/C++ -> Preprocessor -> Preprocessor Definitions
+	- add SFML_STATIC
+	- there will be a number of compiler warnings
+	- step 6 is likely required too, so asset relative paths are correct for the executable
